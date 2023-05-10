@@ -1,0 +1,23 @@
+openapi: "3.0.0"
+
+info:
+  title: "TMAN REST API Doc"
+  version: "1.0.0"
+
+servers:
+  - url: http://0.0.0.0/rest
+
+tags:
+  - name: "jira"
+  - name: "jsm"
+  - name: "insight"
+
+paths:
+  /insight/1.0/object/{objectId}/attributes:
+    get:
+      tags:
+        - "insight"
+      description: Get Insight object attributes
+      responses:
+        200:
+          description: Succeed
