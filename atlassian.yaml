@@ -5,7 +5,7 @@ info:
   version: "1.0.0"
 
 servers:
-  - url: http://0.0.0.0/rest
+  - url: http://0.0.0.0
 
 tags:
   - name: "jira"
@@ -13,7 +13,17 @@ tags:
   - name: "insight"
 
 paths:
-  /insight/1.0/object/{objectId}/attributes:
+
+  /rest/servicedeskapi/organization:
+    get:
+      tags:
+        - "jsm"
+      description: Get JSM Organization
+      responses:
+        200:
+          description: Succeed
+  
+  /rest/insight/1.0/object/{objectId}/attributes:
     get:
       tags:
         - "insight"
