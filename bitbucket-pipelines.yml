@@ -1,0 +1,12 @@
+pipelines:
+  default:
+    - step:
+        name: Sync GitHub Mirror
+        image: atlassian/default-image:4
+        clone:
+          enabled: false
+        script:
+          - git clone --bare git@bitbucket.org:jxit1/${GIT_REPO}.git
+          - cd ${GIT_REPO}.git
+          - git push --mirror git@github.com:tman-lab/${GIT_REPO}.git
+

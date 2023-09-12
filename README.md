@@ -2,4 +2,5 @@
 
 > Read these YAML files in Swagger
 
-## Atlassian
+- Access https://editor.swagger.io
+- File -> Import URL

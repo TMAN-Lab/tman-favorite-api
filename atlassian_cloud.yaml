@@ -1,0 +1,107 @@
+openapi: "3.0.0"
+
+info:
+  title: "FAVORITE ATLASSIAN Cloud REST API"
+  version: "1.0.0"
+
+servers:
+  - url: http://0.0.0.0
+
+tags:
+  - name: "Jira"
+  - name: "JSM"
+  - name: "Insight/Asset"
+  - name: "Confluence"
+
+paths:
+
+  /wiki/rest/api/content/:
+    get:
+      tags:
+        - "Confluence"
+      summary: List Space Root Pages 
+      parameters:
+        - name: spaceKey
+          description: Space Key
+          in: query
+          required: false
+          schema:
+            type: string
+            example: public
+      responses:
+        200:
+          description: Succeed
+
+  /wiki/rest/api/content/{pageId}:
+    get:
+      tags:
+        - "Confluence"
+      summary: Get Page Content
+      parameters:
+        - name: pageId
+          description: Space Key
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 1234567
+        - name: expand
+          description: Expand value key
+          in: query
+          required: false
+          schema:
+            type: string
+            example: body.storage
+      responses:
+        200:
+          description: Succeed
+
+  /wiki/rest/api/content:
+    post:
+      tags:
+        - "Confluence"
+      summary: Create new Page 
+      requestBody:
+        description: Page content metadata and body
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: page
+                title:
+                  type: string
+                  example: My Custom Page
+                ancestors:
+                  type: array
+                  items: 
+                    type: object
+                    properties: 
+                      id: 
+                        type: string
+                        example: 1234567
+                space:
+                  type: object
+                  properties: 
+                      key: 
+                        type: string
+                        example: public
+                body:
+                  type: object
+                  properties: 
+                      storage: 
+                        type: object 
+                        properties: 
+                          value: 
+                            type: string
+                            example: hello, world
+                          representation: 
+                            type: string
+                            example: storage
+      responses:
+        200:
+          description: Succeed
+

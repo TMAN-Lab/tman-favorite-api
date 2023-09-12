@@ -1,23 +1,26 @@
 openapi: "3.0.0"
 
 info:
-  title: "TMAN REST API Doc"
+  title: "FAVORITE ATLASSIAN DataCenter REST API"
   version: "1.0.0"
 
 servers:
   - url: http://0.0.0.0
 
 tags:
-  - name: "jira"
-  - name: "jsm"
-  - name: "insight"
+  - name: "Jira"
+  - name: "JSM"
+  - name: "Insight/Asset"
+  - name: "Confluence"
+  - name: "Bitbucket"
+  - name: "Bamboo"
 
 paths:
 
   /rest/servicedeskapi/organization:
     get:
       tags:
-        - "jsm"
+        - "JSM"
       summary: Get JSM Organization
       responses:
         200:
@@ -26,8 +29,9 @@ paths:
   /rest/insight/1.0/object/{objectId}/attributes:
     get:
       tags:
-        - "insight"
+        - "Insight/Asset"
       description: Get Insight object attributes
       responses:
         200:
           description: Succeed
+
