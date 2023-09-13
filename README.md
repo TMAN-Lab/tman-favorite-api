@@ -1,6 +1,7 @@
 # TMAN Swagger Documents
 
-> Read these YAML files in Swagger
+> Read these APIs in Swagger
 
-- Access https://editor.swagger.io
-- File -> Import URL
+- Access https://tman-lab.github.io/tman-favorite-api/?path=/docs/atlassian/cloud.json
+- Access https://tman-lab.github.io/tman-favorite-api/?path=/docs/atlassian/datacenter.json
+

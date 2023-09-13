@@ -68,7 +68,7 @@ paths:
         200:
           description: Succeed
 
-  /rest/api/latest/result/{buildKey}
+  /rest/api/latest/result/{buildKey}:
     get:
       tags:
         - "Bamboo"
