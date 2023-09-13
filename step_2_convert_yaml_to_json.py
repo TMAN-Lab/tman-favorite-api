@@ -6,7 +6,7 @@ import yaml
 import os
 
 source_dir = os.path.join("swagger_yaml", "atlassian")
-target_dir = os.path.join("jekyll", "docs", "atlassian")
+target_dir = os.path.join("docs", "atlassian")
 
 for item in os.listdir(source_dir):
     source_file = os.path.join(source_dir, item)

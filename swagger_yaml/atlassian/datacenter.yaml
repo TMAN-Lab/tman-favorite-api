@@ -30,7 +30,15 @@ paths:
     get:
       tags:
         - "Insight/Asset"
-      description: Get Insight object attributes
+      summary: Get Insight object attributes
+      parameters:
+        - name: objectId
+          description: Object ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: ABC-123
       responses:
         200:
           description: Succeed
@@ -39,7 +47,7 @@ paths:
     get:
       tags:
         - "Bamboo"
-      description: List Bamboo plans 
+      summary: List Bamboo plans 
       responses:
         200:
           description: Succeed
@@ -48,7 +56,7 @@ paths:
     get:
       tags:
         - "Bamboo"
-      description: List Bamboo plan results
+      summary: List Bamboo plan results
       parameters:
         - name: planKey
           description: Plan key
@@ -72,7 +80,7 @@ paths:
     get:
       tags:
         - "Bamboo"
-      description: List Bamboo build results
+      summary: List Bamboo build results
       parameters:
         - name: buildKey
           description: Build key
@@ -89,7 +97,7 @@ paths:
     get:
       tags:
         - "Bamboo"
-      description: List Bamboo deployment projects
+      summary: List Bamboo deployment projects
       responses:
         200:
           description: Succeed
