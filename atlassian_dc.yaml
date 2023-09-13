@@ -35,3 +35,61 @@ paths:
         200:
           description: Succeed
 
+  /rest/api/latest/plan.json:
+    get:
+      tags:
+        - "Bamboo"
+      description: List Bamboo plans 
+      responses:
+        200:
+          description: Succeed
+
+  /rest/api/latest/result/{planKey}:
+    get:
+      tags:
+        - "Bamboo"
+      description: List Bamboo plan results
+      parameters:
+        - name: planKey
+          description: Plan key
+          in: path
+          required: true
+          schema:
+            type: string
+            example: PLAN-P
+        - name: max-results
+          description: Set results max items
+          in: query
+          required: false
+          schema:
+            type: string
+            example: 10
+      responses:
+        200:
+          description: Succeed
+
+  /rest/api/latest/result/{buildKey}
+    get:
+      tags:
+        - "Bamboo"
+      description: List Bamboo build results
+      parameters:
+        - name: buildKey
+          description: Build key
+          in: path
+          required: true
+          schema:
+            type: string
+            example: Build
+      responses:
+        200:
+          description: Succeed
+
+  /rest/api/latest/deploy/project/all:
+    get:
+      tags:
+        - "Bamboo"
+      description: List Bamboo deployment projects
+      responses:
+        200:
+          description: Succeed
