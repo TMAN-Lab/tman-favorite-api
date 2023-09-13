@@ -56,16 +56,7 @@ exclude:
   - .github
   - Gemfile
   - Dockerfile
-
-path:
- css: "/asset"
- js: "//vstone.gitee.io/will.bowxeon.com/assets/js"
- img: "//vstone.gitee.io/will.bowxeon.com/assets/img"
- posts: "//vstone.gitee.io/will.bowxeon.com/assets/posts"
- fonts: "//will.bowxeon.com/assets/fonts"
- fonts_hc: "//hc.bowxeon.com/assets/fonts"
- logo: 
-   favicon: "//vstone.gitee.io/will.bowxeon.com/assets/img/logo.png"
-   header: "//vstone.gitee.io/will.bowxeon.com/assets/img/logo_white.svg"
-   footer: "//vstone.gitee.io/will.bowxeon.com/assets/img/logo.svg"
-
+  - step_1_prepare_assets.sh
+  - step_2_convert_yaml_to_json.py
+  - step_3_build_docker_image.sh
+  - swagger_yaml

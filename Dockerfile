@@ -1,7 +1,6 @@
 FROM jekyll/jekyll:4 AS builder
 COPY . .
-RUN cd jekyll && \
-    jekyll clean && \
+RUN jekyll clean && \
     jekyll build && \
     mv _site /html
 
