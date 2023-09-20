@@ -21,11 +21,101 @@ paths:
     get:
       tags:
         - "JSM"
-      summary: Get JSM Organization
+      summary: List JSM Organizations
       responses:
         200:
           description: Succeed
-  
+    post:
+      tags:
+        - "JSM"
+      summary: Create JSM Organization
+      requestBody:
+        description: Organization Info
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: tman ltd.
+      responses:
+        200:
+          description: Succeed
+  /rest/servicedeskapi/organization/{organizationId}/user: 
+    get:
+      tags:
+        - "JSM"
+      summary: List JSM Organization Users
+      parameters:
+        - name: organizationId
+          description: JSM Organization ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 123
+      responses:
+        200:
+          description: Succeed
+    post:
+      tags:
+        - "JSM"
+      summary: Add Users into JSM Organization
+      parameters:
+        - name: organizationId
+          description: JSM Organization ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 123
+      requestBody:
+        description: User list
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                usernames:
+                  type: array
+                  items: 
+                    type: string
+                    example: will.shi
+      responses:
+        200:
+          description: Succeed
+    delete:
+      tags:
+        - "JSM"
+      summary: Remove Users from JSM Organization
+      parameters:
+        - name: organizationId
+          description: JSM Organization ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 123
+      requestBody:
+        description: User list
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                usernames:
+                  type: array
+                  items: 
+                    type: string
+                    example: will.shi
+      responses:
+        200:
+          description: Succeed
+
   /rest/insight/1.0/object/{objectId}/attributes:
     get:
       tags:

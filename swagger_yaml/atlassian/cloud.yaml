@@ -15,6 +15,57 @@ tags:
 
 paths:
 
+  /rest/servicedeskapi/organization:
+    get:
+      tags:
+        - "JSM"
+      summary: List JSM Organizations
+      responses:
+        200:
+          description: Succeed
+    post:
+      tags:
+        - "JSM"
+      summary: Create JSM Organization
+      requestBody:
+        description: Organization Info
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: tman ltd.
+      responses:
+        200:
+          description: Succeed
+  /rest/servicedeskapi/servicedesk:
+    get:
+      tags:
+        - "JSM"
+      summary: List JSM Servicedesks
+      responses:
+        200:
+          description: Succeed
+  /rest/servicedeskapi/servicedesk/{servicedeskId}/organization:
+    get:
+      tags:
+        - "JSM"
+      summary: List JSM Oranizations in the Servicedesk Project
+      parameters:
+        - name: servicedeskId
+          description: Servicedesk ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 1
+      responses:
+        200:
+          description: Succeed
+
   /wiki/rest/api/content/:
     get:
       tags:
