@@ -73,7 +73,6 @@ paths:
     post:
       tags:
         - "JSM"
-        - "Insight/Asset"
       summary: Create new Request
       requestBody:
         description: Fields key/value
@@ -177,7 +176,7 @@ paths:
     post:
       tags:
         - "Insight/Asset"
-      summary: Get Asset Objects
+      summary: Get Asset Object
       parameters:
         - name: workspaceId
           description: Asset workspace ID
@@ -204,7 +203,68 @@ paths:
                     properties:
                       objectTypeAttributeId:
                         type: string
-                        example: "23"
+                        example: "243"
+                      objectAttributeValues:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            value:
+                              type: string
+                              example: "NY-1"
+      responses:
+        201:
+          description: Succeed
+
+  /jsm/assets/workspace/{workspaceId}/v1/object/{objectId}/attributes:
+    get:
+      tags:
+        - "Insight/Asset"
+      summary: Get Asset Object Attributes
+      parameters:
+        - name: workspaceId
+          description: Asset workspace ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 1ac3a541-77bf-4x5c-9667-bd4c29494348
+      responses:
+        200:
+          description: Succeed
+
+  /jsm/assets/workspace/{workspaceId}/v1/object/{objectId}:
+    put:
+      tags:
+        - "Insight/Asset"
+      summary: Update Asset Object
+      parameters:
+        - name: workspaceId
+          description: Asset workspace ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 1ac3a541-77bf-4x5c-9667-bd4c29494348
+      requestBody:
+        description: Object Data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                objectTypeId:
+                  type: string
+                  example: "23"
+                attributes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      objectTypeAttributeId:
+                        type: string
+                        example: "243"
                       objectAttributeValues:
                         type: array
                         items:
