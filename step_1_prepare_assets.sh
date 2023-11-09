@@ -13,9 +13,11 @@ rm -rf swagger-ui-${swagger_version}
 if [ $(uname) == "Darwin" ]; then
     sed -i '' "s#window.onload.*#window.onload = function() {\nvar custom_url = new URL(window.location.href);\nvar custom_path = custom_url.searchParams.get(\"path\");\n#" swagger-initializer.js
     sed -i '' "s/url:.*/url: custom_path,/" swagger-initializer.js
+    sed -i '' "s#<title>.*</title>#<title>{{ site.title }}</title>#" index.html
 else
     sed -i "s#window.onload.*#window.onload = function() {\nvar custom_url = new URL(window.location.href);\nvar custom_path = custom_url.searchParams.get(\"path\");\n#" swagger-initializer.js
     sed -i "s/url:.*/url: custom_path,/" swagger-initializer.js
+    sed -i "s#<title>.*</title>#<title>{{ site.title }}</title>#" index.html
 fi
 
 
