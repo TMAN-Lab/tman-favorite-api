@@ -20,5 +20,7 @@ else
     sed -i "s#<title>.*</title>#<title>TMAN Favorite API</title>#" index.html
 fi
 
+cp favicon.png favicon-16x16.png
+cp favicon.png favicon-32x32.png
 
 
