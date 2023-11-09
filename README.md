@@ -12,9 +12,9 @@
 
 [swagger_yaml/atlassian](swagger_yaml/atlassian)
 
-## Push Doc
+## Push Doc to GitHub
 
-If setup new swagger ui version
+Setup new swagger ui version
 
 ```bash
 ./step_1_prepare_assets.sh
@@ -25,6 +25,8 @@ Convert YAML to Json
 ```bash
 ./step_2_convert_yaml_to_json.py
 ```
+
+## Build a local Docker image to debug
 
 Build an new Docker image
 

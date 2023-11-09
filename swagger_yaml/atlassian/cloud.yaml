@@ -6,6 +6,7 @@ info:
 
 servers:
   - url: http://0.0.0.0
+  - url: https://api.atlassian.com
 
 tags:
   - name: "Jira"
@@ -41,6 +42,7 @@ paths:
       responses:
         200:
           description: Succeed
+
   /rest/servicedeskapi/servicedesk:
     get:
       tags:
@@ -49,6 +51,7 @@ paths:
       responses:
         200:
           description: Succeed
+
   /rest/servicedeskapi/servicedesk/{servicedeskId}/organization:
     get:
       tags:
@@ -64,6 +67,154 @@ paths:
             example: 1
       responses:
         200:
+          description: Succeed
+
+  /rest/servicedeskapi/request:
+    post:
+      tags:
+        - "JSM"
+        - "Insight/Asset"
+      summary: Create new Request
+      requestBody:
+        description: Fields key/value
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requestTypeId:
+                  type: string
+                  example: 1
+                serviceDeskId:
+                  type: string
+                  example: 1
+                raiseOnBehalfOf:
+                  type: string
+                  example: 63c4f0c20c615857128caecd
+                isAdfRequest:
+                  type: boolean
+                  example: false
+                requestFieldValues:
+                  type: object
+                  properties:
+                    summary:
+                      type: string
+                      example: this is my ticket
+                    description:
+                      type: string
+                      example: ticket description
+                    versions:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 10418
+                    components:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 10418
+                    customfield_10050:
+                      type: object
+                      properties:
+                        value: 
+                          type: string
+                          example: hello
+                    customfield_10090:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 1ac3a551-77af-4c5c-8607-bd4c89495348:3
+      responses:
+        200:
+          description: Succeed
+
+  /jsm/assets/workspace/{workspaceId}/v1/object/aql:
+    post:
+      tags:
+        - "Insight/Asset"
+      summary: Get Asset Objects
+      parameters:
+        - name: workspaceId
+          description: Asset workspace ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 1ac3a541-77bf-4x5c-9667-bd4c29494348
+        - name: maxResults
+          description: Max results
+          in: query
+          required: false
+          schema:
+            type: string
+            example: 20
+      requestBody:
+        description: AQL Query
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                qlQuery:
+                  type: string
+                  example: "objectType = Computer"
+      responses:
+        200:
+          description: Succeed
+        
+  /jsm/assets/workspace/{workspaceId}/v1/object/create:
+    post:
+      tags:
+        - "Insight/Asset"
+      summary: Get Asset Objects
+      parameters:
+        - name: workspaceId
+          description: Asset workspace ID
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 1ac3a541-77bf-4x5c-9667-bd4c29494348
+      requestBody:
+        description: Object Data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                objectTypeId:
+                  type: string
+                  example: "23"
+                attributes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      objectTypeAttributeId:
+                        type: string
+                        example: "23"
+                      objectAttributeValues:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            value:
+                              type: string
+                              example: "NY-1"
+      responses:
+        201:
           description: Succeed
 
   /wiki/rest/api/content/:
