@@ -1,7 +1,6 @@
 window.onload = function() {
   var custom_url = new URL(window.location.href);
   var custom_path = custom_url.searchParams.get("path");
-  // document.getElementsByTagName("img")[0].src = "./logo.png";
 
   //<editor-fold desc="Changeable Configuration Block">
 
@@ -21,4 +20,6 @@ window.onload = function() {
   });
 
   //</editor-fold>
+  document.getElementsByTagName("img")[0].src = "./logo.png";
+
 };

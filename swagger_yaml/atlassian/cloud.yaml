@@ -176,7 +176,7 @@ paths:
     post:
       tags:
         - "Insight/Asset"
-      summary: Get Asset Object
+      summary: Create Asset Object
       parameters:
         - name: workspaceId
           description: Asset workspace ID
