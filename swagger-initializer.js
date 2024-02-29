@@ -20,6 +20,6 @@ window.onload = function() {
   });
 
   //</editor-fold>
-  document.getElementsByTagName("img")[0].src = "./logo.png";
+  document.getElementsByTagName("img")[0].src = "./logo.svg";
 
 };
